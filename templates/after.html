@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction</title>
+</head>
+<body bgcolor=#a3cfb4>
+    <center>
+
+        <h1>  PREDICTION :  </h1>
+    
+    {%if data == 0%}
+    <h1>Default Payment</h1> 
+    <h3>Please Pay your bills on time to avoid extra cost incurred due to delays</h3> 
+    <!-- <img src='E:\Skills\Flask\static\default.jpg'>   -->
+    <img src="https://m.economictimes.com/thumb/msid-82727514,width-1200,height-900,resizemode-4,imgsize-58375/default.jpg">  
+
+    {%else%}
+    <h1>Non -default</h1>
+    <h3>We are Happy to provide you service</h3>
+    <!-- <img src='E:\Skills\Flask\static\nondefault.jpg' > -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_NdXkaRmJJTLVf6og86cmM_sBFZBxkMmuGh7sKoydC_d4NuKSaqlYDpSfhnR3R5aONuk&usqp=CAU" alt="nondefault">
+    
+    {%endif%}
+
+        <br><br>
+    <a href='/'>go back to home page</a>
+
+    </center>
+
+    
+</body>
+</html>
