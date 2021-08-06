@@ -6,144 +6,297 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Credit Card Fraud Detection</title>
+    <style>
+        body{
+            background: #dfdeeb;
+        }
+        center{
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .title{
+            margin-bottom: 20px;
+        }
+        .title span{
+            font-size: 40px;
+            font-family: monospace;
+            text-shadow: 0px 0px 9px #bb6921;
+        }
+        .form-layout{
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            margin-top: 20px;
+            border: 2px solid grey;
+            width: 40%;
+            min-width: 400px;
+            margin: auto;
+            padding-bottom: 20px;
+            background: linear-gradient(89deg, #dd9393, #ebf5e1)
+        }
+        .form-single-item{
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            margin: 20px;
+            font-size: 1.2em;
+            width: 95%;
+        }
+        .form-single-item input,label,select {
+            width: 70%;
+            margin: auto;
+            text-align: center;
+            outline: none;
+        }
+
+        .form-single-item input,select {
+            font-size: .75em;
+            text-align: center;
+            border: 2px solid grey;
+            border-radius: 8px;
+            padding: 4px;
+            background: #cce9ed;
+            transition: .5s all ease-in-out;
+        }
+
+        .form-single-item input:focus {
+            background: #80c3ce;
+            border: 2px solid darkblue;
+        }
+        select:focus{
+            background: #80c3ce;
+            border: 2px solid darkblue;
+        }
+    
+        label {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+            font-family: -webkit-pictograph;
+            font-weight: 600;
+            color: #d02545;
+        }
+
+        .form-button-item{
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .form-button-item input {
+            border: 2px solid #3a8f73;
+            border-radius: 10px;
+            background: #2cc470;
+            font-size: 1.1em;
+            font-family: sans-serif;
+            font-family: cursive;
+            color: white;
+            transition: .6s all ease-in-out;
+        }
+        .form-button-item input:nth-child(2) {
+            background: #e75360;
+            /color: black;/
+            border: 2px solid #d02940;
+        }
+        .form-button-item input:hover{
+            border: 2px solid green;
+            box-shadow: 0 0 10px green;
+        }
+        .form-button-item input:nth-child(2):hover{
+            border: 2px solid red;
+            box-shadow: 0 0 10px red;
+        }
+    </style>
 </head>
 
 <body>
     <center>
-    <h2>Enter the Details of the Customer</h2>
-    <form  method="post" action="{{url_for('predict')}}">
-        <label for="LimitBalance">Limit Balance</label>
-        <div>
-            <input type="number" value="" name="Limit_Balance" placeholder="Enter the Limit Balance in $" id="LimitBalance">
-        </div>
-        <br>
-        <label for="gender">Gender</label>
-        <div>
-            <select name="Sex" id="gender">
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Others</option>
-            </select>
-        </div>
-        <br>
-        <label for="education">Education</label>
-        <div>
-            <select name="education" id="education">
-                <option value=1>Graduate</option>
-                <option value=2>University</option>
-                <option value=3>High School</option>
-                <option value=4>others</option>
-            </select>
-        </div>
-        <br>
-        <label for="marriage">Marraige</label>
-        <div>
-            <select name="marriage" id="marriage">
-                <option value=1>Married</option>
-                <option value=2>Unmarried</option>
-                <option value=3>Others</option>
-            </select>
-        </div>
-        <br>
-        <label for="age">Age</label>
-        <div>
-            <input type="number" name="age" placeholder="Enter the Age" id="age">
-        </div>
-        <br>
-        <label for="pay1">Pay 1</label>
-        <div>
-            <input type="number" name="pay1" placeholder="Repayment Status in Septempber" id="pay1">
-        </div>
-        <br>
-        <label for="pay2">Pay 2</label>
-        <div>
-            <input type="number" name="pay2" placeholder="Repayment Status in August" id="pay2">
-        </div>
-        <br>
-        <label for="pay3">Pay 3</label>
-        <div>
-            <input type="number" name="pay3" placeholder="Repayment Status in July" id="pay3">
-        </div>
-        <br>
-        <label for="pay4">Pay 4</label>
-        <div>
-            <input type="number" name="pay4" placeholder="Repayment Status in June" id="pay4">
-        </div>
-        <br>
-        <label for="pay5">Pay 5</label>
-        <div>
-            <input type="number" name="pay5" placeholder="Repayment Status in May" id="pay5">
-        </div>
-        <br>
-        <label for="pay6">Pay 6</label>
-        <div>
-            <input type="number" name="pay6" placeholder="Repayment Status in April" id="pay6">
-        </div>
-        <br>
-        <label for="bill1">Bill 1</label>
-        <div>
-            <input type="number" name="bill1" placeholder="Amount of Bill in Semptember" id="bill1">
-        </div>
-        <br>
-        <label for="bill2">Bill 2</label>
-        <div>
-            <input type="number" name="bill2" placeholder="Amount of Bill in August" id="bill2">
-        </div>
-        <br>
-        <label for="bill3">Bill 3</label>
-        <div>
-            <input type="number" name="bill3" placeholder="Amount of Bill in July" id="bill3">
-        </div>
-        <br>
-        <label for="bill4">Bill 4</label>
-        <div>
-            <input type="number" name="bill4" placeholder="Amount of Bill in June" id="bill4">
-        </div>
-        <br>
-        <label for="bill5">Bill 5</label>
-        <div>
-            <input type="number" name="bill5" placeholder="Amount of Bill in May" id="bill5">
-        </div>
-        <br>
-        <label for="bill6">Bill 6</label>
-        <div>
-            <input type="number" name="bill6" placeholder="Amount of Bill in April" id="bill6">
-        </div>
-        <br>
-        <label for="PrevPay1">PrevPay 1</label>
-        <div>
-            <input type="number" name="PrevPay1" placeholder="Amount of previous payment in Semptember" id="PrevPay1">
-        </div>
-        <br>
-        <label for="PrevPay2">PrevPay 2</label>
-        <div>
-            <input type="number" name="PrevPay2" placeholder="Amount of previous payment in August" id="PrevPay2">
-        </div>
-        <br>
-        <label for="PrevPay3">PrevPay 3</label>
-        <div>
-            <input type="number" name="PrevPay3" placeholder="Amount of previous payment in July" id="PrevPay3">
-        </div>
-        <br>
-        <label for="PrevPay4">PrevPay 4</label>
-        <div>
-            <input type="number" name="PrevPay4" placeholder="Amount of previous payment in June" id="PrevPay4">
-        </div>
-        <br>
-        <label for="PrevPay5">PrevPay 5</label>
-        <div>
-            <input type="number" name="PrevPay5" placeholder="Amount of previous payment in May" id="PrevPay5">
-        </div>
-        <br>
-        <label for="PrevPay6">PrevPay 6</label>
-        <div>
-            <input type="number" name="PrevPay6" placeholder="Amount of previous payment in April" id="PrevPay6">
-        </div>
-        <br>
-        <input type="submit" value="Submit Now">
-        <input type="reset" value="Reset Now">
+    <div class='title'>
+        <span>Enter the Details of the Customer</span>
+    </div>
+    <div class = 'form-layout'>
+        <form  method="post" action="{{url_for('predict')}}">
 
-    </form>
+            <div class = 'form-single-item'>
+                <label for="LimitBalance">Limit Balance</label>
+                <div>
+                    <input type="number" value="" name="Limit_Balance" placeholder="Enter the Limit Balance in $" id="LimitBalance">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="gender">Gender</label>
+                <div>
+                    <select name="Sex" id="gender">
+                        <option value=1>Male</option>
+                        <option value=2>Female</option>
+                        <option value=3>Others</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="education">Education</label>
+                <div>
+                    <select name="education" id="education">
+                        <option value=1>Graduate</option>
+                        <option value=2>University</option>
+                        <option value=3>High School</option>
+                        <option value=4>others</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+            <label for="marriage">Marraige</label>
+                <div>
+                    <select name="marriage" id="marriage">
+                        <option value=1>Married</option>
+                        <option value=2>Unmarried</option>
+                        <option value=3>Others</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="age">Age</label>
+                <div>
+                    <input type="number" name="age" placeholder="Enter the Age" id="age">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="pay1">Pay 1</label>
+                <div>
+                    <input type="number" name="pay1" placeholder="Repayment Status in Septempber" id="pay1">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="pay2">Pay 2</label>
+                <div>
+                    <input type="number" name="pay2" placeholder="Repayment Status in August" id="pay2">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="pay3">Pay 3</label>
+                <div>
+                    <input type="number" name="pay3" placeholder="Repayment Status in July" id="pay3">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="pay4">Pay 4</label>
+                <div>
+                    <input type="number" name="pay4" placeholder="Repayment Status in June" id="pay4">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="pay5">Pay 5</label>
+                <div>
+                    <input type="number" name="pay5" placeholder="Repayment Status in May" id="pay5">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="pay6">Pay 6</label>
+                <div>
+                    <input type="number" name="pay6" placeholder="Repayment Status in April" id="pay6">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="bill1">Bill 1</label>
+                <div>
+                    <input type="number" name="bill1" placeholder="Amount of Bill in Semptember" id="bill1">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="bill2">Bill 2</label>
+                <div>
+                    <input type="number" name="bill2" placeholder="Amount of Bill in August" id="bill2">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="bill3">Bill 3</label>
+                <div>
+                    <input type="number" name="bill3" placeholder="Amount of Bill in July" id="bill3">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="bill4">Bill 4</label>
+                <div>
+                    <input type="number" name="bill4" placeholder="Amount of Bill in June" id="bill4">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="bill5">Bill 5</label>
+                <div>
+                    <input type="number" name="bill5" placeholder="Amount of Bill in May" id="bill5">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="bill6">Bill 6</label>
+                <div>
+                    <input type="number" name="bill6" placeholder="Amount of Bill in April" id="bill6">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="PrevPay1">PrevPay 1</label>
+                <div>
+                    <input type="number" name="PrevPay1" placeholder="Amount of previous payment in Semptember" id="PrevPay1">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="PrevPay2">PrevPay 2</label>
+                <div>
+                    <input type="number" name="PrevPay2" placeholder="Amount of previous payment in August" id="PrevPay2">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="PrevPay3">PrevPay 3</label>
+                <div>
+                    <input type="number" name="PrevPay3" placeholder="Amount of previous payment in July" id="PrevPay3">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="PrevPay4">PrevPay 4</label>
+                <div>
+                    <input type="number" name="PrevPay4" placeholder="Amount of previous payment in June" id="PrevPay4">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="PrevPay5">PrevPay 5</label>
+                <div>
+                    <input type="number" name="PrevPay5" placeholder="Amount of previous payment in May" id="PrevPay5">
+                </div>
+            </div>
+
+            <div class = 'form-single-item'>
+                <label for="PrevPay6">PrevPay 6</label>
+                <div>
+                    <input type="number" name="PrevPay6" placeholder="Amount of previous payment in April" id="PrevPay6">
+                </div>
+            </div>
+            
+            <div class = 'form-button-item'>
+                <input type="submit" value="Submit Now">
+                <input type="reset" value="Reset Now">
+            </div>
+
+        </form>
+    </div>
 </center>
 </body>
 

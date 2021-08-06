@@ -5,23 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prediction</title>
+    <style>
+        body{
+            background: #d8f35f8e;
+        }
+        center{
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .title{
+            margin-bottom: 20px;
+        }
+        .title span{
+            font-size: 15px;
+            font-family: monospace;
+            text-shadow: 0px 0px 9px #cc8649;
+        }
+        .center{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 40%;
+        }
+        .heading span{
+            font-size: 20px;
+            font-family: monospace;
+            text-shadow: 0px 0px 9px #e7cf44;
+        }
+        .textb{
+            font-size: 20px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>
 </head>
 <body bgcolor=#a3cfb4>
     <center>
-
-        <h1>  PREDICTION :  </h1>
+        <div class="heading">
+           <span>  <h1> PREDICTION : </h1>  </span>
+        </div>
     
     {%if data == 0%}
-    <h1>Default Payment</h1> 
-    <h3>Please Pay your bills on time to avoid extra cost incurred due to delays</h3> 
+    <div class="title">
+        <span><h1>Default Payment</h1> </span>
+    </div>
+    <div class="textb">
+        <h3>Please ask the customer to Pay bills on time, to avoid the extra cost incurred due to delay</h3> 
+    </div>
     <!-- <img src='E:\Skills\Flask\static\default.jpg'>   -->
-    <img src="https://m.economictimes.com/thumb/msid-82727514,width-1200,height-900,resizemode-4,imgsize-58375/default.jpg">  
+    <img src="https://m.economictimes.com/thumb/msid-82727514,width-1200,height-900,resizemode-4,imgsize-58375/default.jpg" width="500" class="center" >  
 
     {%else%}
-    <h1>Non -default</h1>
-    <h3>We are Happy to provide you service</h3>
+    <div class="title">
+       <span> <h1>Non-default Payment</h1></span>
+    </div>
+
+    <div class="textb">
+        <h3>The Customer Pays the bills on time</h3>
+    </div>
     <!-- <img src='E:\Skills\Flask\static\nondefault.jpg' > -->
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_NdXkaRmJJTLVf6og86cmM_sBFZBxkMmuGh7sKoydC_d4NuKSaqlYDpSfhnR3R5aONuk&usqp=CAU" alt="nondefault">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_NdXkaRmJJTLVf6og86cmM_sBFZBxkMmuGh7sKoydC_d4NuKSaqlYDpSfhnR3R5aONuk&usqp=CAU" alt="nondefault" class="center">
     
     {%endif%}
 
